@@ -1,6 +1,6 @@
 ﻿namespace SimonSaysApp.Views
 {
-	partial class Leaderboard
+	partial class HelpPage
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,15 +30,13 @@
 		{
 			this.SuspendLayout();
 			// 
-			// Leaderboard
+			// HelpPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(309, 347);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.Name = "Leaderboard";
-			this.Text = "Leaderboard";
-			this.Load += new System.EventHandler(this.Leaderboard_Load);
+			this.Name = "HelpPage";
+			this.Text = "HelpPage";
 			this.ResumeLayout(false);
 
 		}

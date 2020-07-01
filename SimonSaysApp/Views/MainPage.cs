@@ -19,9 +19,9 @@ namespace SimonSaysApp
 		private GameFactory factory = null;
 		public TimeSpan GameOverTime = new TimeSpan();
 		public double SequenceTime;
-		public List<int> Lights = new List<int>();
-
+		public List<int> LightIds = new List<int>();
 		public List<int> LightSequence = new List<int>();
+
  		public Random Random = new Random();
 		public bool GameOver;
 		public double LightOnTime = 0;
@@ -45,20 +45,23 @@ namespace SimonSaysApp
 					case "Easy":
 						GameOverTime = new TimeSpan(0, 0, 0);
 						SequenceTime = 2;
-						Lights = new List<int> { 10, 2, 3 };
-						factory = new EasyGameFactory(GameOverTime, SequenceTime, Lights);
+						LightIds = new List<int> { 10, 2, 3 };
+						LightSequence = new List<int>();
+						factory = new EasyGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
 						break;
 					case "Normal":
 						GameOverTime = new TimeSpan(0, 0, 5);
 						SequenceTime = 1;
-						Lights = new List<int> { 10, 2, 3, 4, 5, 6 };
-						factory = new NormalGameFactory(GameOverTime, SequenceTime, Lights);
+						LightIds = new List<int> { 10, 2, 3, 4, 5, 6 };
+						LightSequence = new List<int>();
+						factory = new NormalGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
 						break;
 					case "Hard":
 						GameOverTime = new TimeSpan(0, 0, 2);
 						SequenceTime = 0.5;
-						Lights = new List<int> { 10, 2, 3, 4, 5, 6, 7, 8, 9 };
-						factory = new HardGameFactory(GameOverTime, SequenceTime, Lights);
+						LightIds = new List<int> { 10, 2, 3, 4, 5, 6, 7, 8, 9 };
+						LightSequence = new List<int>();
+						factory = new HardGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
 						break;
 					default:
 						break;
@@ -70,8 +73,9 @@ namespace SimonSaysApp
 				//Generate Light-Sequence
 				for (int i = 0; i < 3; i++)
 				{
-					int index = Random.Next(Lights.Count);
-					LightSequence.Add(Lights[index]);
+					int index = Random.Next(LightIds.Count);
+					game.LightSequence.Add(LightIds[index]);
+					//LightSequence.Add(Lights[index]);
 				}
 
 				/*Displays Light-Sequence
@@ -88,7 +92,7 @@ namespace SimonSaysApp
 				while (!GameOver)
 				{
 					//Executes LightSequence
-					foreach (int lightId in LightSequence)
+					foreach (int lightId in game.LightSequence)
 					{
 						Light light = new Light();
 						light.LightId = lightId;
@@ -106,8 +110,9 @@ namespace SimonSaysApp
 
 					if (!Mistake)
 					{
-						int index = Random.Next(Lights.Count);
-						LightSequence.Add(Lights[index]);
+						int index = Random.Next(LightIds.Count);
+						game.LightSequence.Add(LightIds[index]);
+						//LightSequence.Add(Lights[index]);
 
 						ScorePoints += 1;
 						lbl_ScorePoints.Text = ScorePoints.ToString();
@@ -127,8 +132,7 @@ namespace SimonSaysApp
 
 		public void EndGame()
 		{
-			LightSequence = new List<int>();
-			MessageBox.Show("GAME OVER");
+			MessageBox.Show("GAME OVER \n Jouw score: "+ScorePoints.ToString()+"");
 		}
 
 		public void ShowLeaderboard()
@@ -151,6 +155,12 @@ namespace SimonSaysApp
 		private void btn_Leaderboard_Click(object sender, EventArgs e)
 		{
 			ShowLeaderboard();
+		}
+
+		private void btn_Help_Click(object sender, EventArgs e)
+		{
+			HelpPage form = new HelpPage();
+			form.Show();
 		}
 	}
 }

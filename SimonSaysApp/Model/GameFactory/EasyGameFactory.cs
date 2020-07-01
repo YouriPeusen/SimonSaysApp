@@ -11,18 +11,21 @@ namespace SimonSaysApp.Model.GameFactory
 	{
 		private TimeSpan _gameOverTime;
 		private double _sequenceSpeed;
-		private List<int> _lights;
+		private List<int> _lightIds;
+		private List<int> _lightSequence;
 
-		public EasyGameFactory(TimeSpan gameOverTime, double sequenceSpeed, List<int> lights)
+
+		public EasyGameFactory(TimeSpan gameOverTime, double sequenceSpeed, List<int> lightIds, List<int> lightSequence)
 		{
 			_gameOverTime = gameOverTime;
 			_sequenceSpeed = sequenceSpeed;
-			_lights = lights;
+			_lightIds = lightIds;
+			_lightSequence = lightSequence;
 		}
 
 		public override Game.Game GetGame()
 		{
-			return new EasyGame(_gameOverTime, _sequenceSpeed, _lights);
+			return new EasyGame(_gameOverTime, _sequenceSpeed, _lightIds, _lightSequence);
 		}
 	}
 }

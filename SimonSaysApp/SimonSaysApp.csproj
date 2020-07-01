@@ -59,6 +59,12 @@
     <Compile Include="Model\Light.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Views\HelpPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\HelpPage.Designer.cs">
+      <DependentUpon>HelpPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Leaderboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\HelpPage.resx">
+      <DependentUpon>HelpPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Leaderboard.resx">
       <DependentUpon>Leaderboard.cs</DependentUpon>
     </EmbeddedResource>

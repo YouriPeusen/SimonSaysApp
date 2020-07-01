@@ -11,6 +11,7 @@ namespace SimonSaysApp.Model.Game
 		public abstract string GameLevel { get; }
 		public abstract TimeSpan GameOverTime { get; set; }
 		public abstract double SequenceSpeed { get; set; }
-		public abstract List<int> Lights { get; set; }
+		public abstract List<int> LightIds { get; set; }
+		public abstract List<int> LightSequence { get; set; }
 	}
 }

@@ -11,14 +11,16 @@ namespace SimonSaysApp.Model.Game
 		private readonly string _gameLevel;
 		private TimeSpan _gameOverTime;
 		private double _sequenceSpeed;
-		private List<int> _lights;
+		private List<int> _lightIds;
+		private List<int> _lightSequence;
 
-		public NormalGame(TimeSpan gameOverTime, double sequenceSpeed, List<int> lights)
+		public NormalGame(TimeSpan gameOverTime, double sequenceSpeed, List<int> lightIds, List<int> lightSequence)
 		{
 			_gameLevel = "Normal";
 			_gameOverTime = gameOverTime;
 			_sequenceSpeed = sequenceSpeed;
-			_lights = lights;
+			_lightIds = lightIds;
+			_lightSequence = lightSequence;
 		}
 
 		public override string GameLevel
@@ -38,10 +40,16 @@ namespace SimonSaysApp.Model.Game
 			set { _sequenceSpeed = value; }
 		}
 
-		public override List<int> Lights
+		public override List<int> LightIds
 		{
-			get { return _lights; }
-			set { _lights = value; }
+			get { return _lightIds; }
+			set { _lightIds = value; }
+		}
+
+		public override List<int> LightSequence
+		{
+			get { return _lightSequence; }
+			set { _lightSequence = value; }
 		}
 	}
 }
