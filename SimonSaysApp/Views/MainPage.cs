@@ -18,7 +18,7 @@ namespace SimonSaysApp
 	{
 		private GameFactory factory = null;
 		public TimeSpan GameOverTime = new TimeSpan();
-		public double SequenceTime;
+		public double SequenceSpeed;
 		public List<int> LightIds = new List<int>();
 		public List<int> LightSequence = new List<int>();
 
@@ -44,24 +44,24 @@ namespace SimonSaysApp
 				{
 					case "Easy":
 						GameOverTime = new TimeSpan(0, 0, 0);
-						SequenceTime = 2;
+						SequenceSpeed = 2;
 						LightIds = new List<int> { 10, 2, 3 };
 						LightSequence = new List<int>();
-						factory = new EasyGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
+						factory = new EasyGameFactory(GameOverTime, SequenceSpeed, LightIds, LightSequence);
 						break;
 					case "Normal":
 						GameOverTime = new TimeSpan(0, 0, 5);
-						SequenceTime = 1;
+						SequenceSpeed = 1;
 						LightIds = new List<int> { 10, 2, 3, 4, 5, 6 };
 						LightSequence = new List<int>();
-						factory = new NormalGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
+						factory = new NormalGameFactory(GameOverTime, SequenceSpeed, LightIds, LightSequence);
 						break;
 					case "Hard":
 						GameOverTime = new TimeSpan(0, 0, 2);
-						SequenceTime = 0.5;
+						SequenceSpeed = 0.5;
 						LightIds = new List<int> { 10, 2, 3, 4, 5, 6, 7, 8, 9 };
 						LightSequence = new List<int>();
-						factory = new HardGameFactory(GameOverTime, SequenceTime, LightIds, LightSequence);
+						factory = new HardGameFactory(GameOverTime, SequenceSpeed, LightIds, LightSequence);
 						break;
 					default:
 						break;
@@ -97,7 +97,7 @@ namespace SimonSaysApp
 						Light light = new Light();
 						light.LightId = lightId;
 						light.SetLightOn();
-						await Task.Delay(new TimeSpan(0, 0, Convert.ToInt32(SequenceTime)));
+						await Task.Delay(new TimeSpan(0, 0, Convert.ToInt32(SequenceSpeed)));
 						light.SetLightOff();
 					}
 
