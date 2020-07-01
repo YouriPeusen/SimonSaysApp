@@ -32,7 +32,8 @@
 			this.btn_StartGame = new System.Windows.Forms.Button();
 			this.lbl_Level = new System.Windows.Forms.Label();
 			this.btn_Leaderboard = new System.Windows.Forms.Button();
-			this.lbl_Message = new System.Windows.Forms.Label();
+			this.lbl_Score = new System.Windows.Forms.Label();
+			this.lbl_ScorePoints = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// clb_GameLevel
@@ -47,12 +48,11 @@
 			this.clb_GameLevel.Size = new System.Drawing.Size(70, 49);
 			this.clb_GameLevel.TabIndex = 0;
 			this.clb_GameLevel.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clb_GameLevel_ItemCheck);
-			this.clb_GameLevel.SelectedIndexChanged += new System.EventHandler(this.clb_GameLevel_SelectedIndexChanged);
 			// 
 			// btn_StartGame
 			// 
 			this.btn_StartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn_StartGame.Location = new System.Drawing.Point(26, 134);
+			this.btn_StartGame.Location = new System.Drawing.Point(26, 121);
 			this.btn_StartGame.Name = "btn_StartGame";
 			this.btn_StartGame.Size = new System.Drawing.Size(180, 51);
 			this.btn_StartGame.TabIndex = 1;
@@ -80,21 +80,35 @@
 			this.btn_Leaderboard.UseVisualStyleBackColor = true;
 			this.btn_Leaderboard.Click += new System.EventHandler(this.btn_Leaderboard_Click);
 			// 
-			// lbl_Message
+			// lbl_Score
 			// 
-			this.lbl_Message.AutoSize = true;
-			this.lbl_Message.Location = new System.Drawing.Point(113, 96);
-			this.lbl_Message.Name = "lbl_Message";
-			this.lbl_Message.Size = new System.Drawing.Size(0, 13);
-			this.lbl_Message.TabIndex = 4;
-			this.lbl_Message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl_Score.AutoSize = true;
+			this.lbl_Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_Score.Location = new System.Drawing.Point(88, 175);
+			this.lbl_Score.Name = "lbl_Score";
+			this.lbl_Score.Size = new System.Drawing.Size(49, 17);
+			this.lbl_Score.TabIndex = 4;
+			this.lbl_Score.Text = "Score:";
+			this.lbl_Score.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// lbl_ScorePoints
+			// 
+			this.lbl_ScorePoints.AutoSize = true;
+			this.lbl_ScorePoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl_ScorePoints.Location = new System.Drawing.Point(100, 203);
+			this.lbl_ScorePoints.Name = "lbl_ScorePoints";
+			this.lbl_ScorePoints.Size = new System.Drawing.Size(23, 25);
+			this.lbl_ScorePoints.TabIndex = 5;
+			this.lbl_ScorePoints.Text = "0";
+			this.lbl_ScorePoints.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(239, 282);
-			this.Controls.Add(this.lbl_Message);
+			this.Controls.Add(this.lbl_ScorePoints);
+			this.Controls.Add(this.lbl_Score);
 			this.Controls.Add(this.btn_Leaderboard);
 			this.Controls.Add(this.lbl_Level);
 			this.Controls.Add(this.btn_StartGame);
@@ -112,7 +126,8 @@
 		private System.Windows.Forms.Button btn_StartGame;
 		private System.Windows.Forms.Label lbl_Level;
 		private System.Windows.Forms.Button btn_Leaderboard;
-		private System.Windows.Forms.Label lbl_Message;
+		private System.Windows.Forms.Label lbl_Score;
+		private System.Windows.Forms.Label lbl_ScorePoints;
 	}
 }
 
